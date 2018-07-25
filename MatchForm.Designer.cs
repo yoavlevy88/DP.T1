@@ -94,7 +94,7 @@
             this.buttonMatch.TabIndex = 4;
             this.buttonMatch.Text = "Make a match!";
             this.buttonMatch.UseVisualStyleBackColor = true;
-            this.buttonMatch.Click += new System.EventHandler(this.button1_Click);
+            this.buttonMatch.Click += new System.EventHandler(this.buttonMatch_Click);
             // 
             // labelGroupA
             // 

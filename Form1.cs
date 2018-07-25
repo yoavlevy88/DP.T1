@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,12 +9,52 @@ using System.Text;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace C18_Ex01
 {
+    //public class manualFriend
+    //{
+    //    public string name;
+    //    public string gender;
+    //    public manualFriend(string name, string gender)
+    //    {
+    //        this.name = name;
+    //        this.gender = gender;
+    //    }
+
+        //public string Name
+        //{
+        //    get
+        //    {
+        //        return this.name;
+        //    }
+        //    set
+        //    {
+        //        this.name = value;
+        //    }
+        //}
+        //public string Gender
+        //{
+        //    get
+        //    {
+        //        return this.gender;
+        //    }
+        //    set
+        //    {
+        //        this.gender = value;
+        //    }
+        //}
+    //}
+
     public partial class Form1 : Form
     {
         LoginResult m_loginResult = null;
+        //public ArrayList manualFriendsList = new ArrayList();
+        ArrayList m_friends = new ArrayList();
+        FacebookFriendsUtils m_fbFriendsUtils;
+
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +88,13 @@ namespace C18_Ex01
                 this.listBoxFriends.Enabled = true;
                 this.listBoxPages.Enabled = true;
                 this.listBoxPosts.Enabled = true;
+                m_fbFriendsUtils = new FacebookFriendsUtils("C:/Desktop/fbFriends.xml", this.m_loginResult.LoggedInUser.Name);
+                //genrateFriendList();
+                //displayManaualFriends();
+                //saveFriendListToFile();
                 fetchFriends();
+                saveFriendListToFile();
+
                 fetchPosts();
                 //fetchEvents();
                 //fetchPages();
@@ -118,6 +165,7 @@ namespace C18_Ex01
             this.listBoxFriends.DisplayMember = "Name";
             foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
             {
+                this.m_friends.Add(friend);
                 this.listBoxFriends.Items.Add(friend);
                 friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
             }
@@ -152,9 +200,46 @@ namespace C18_Ex01
 
         private void buttonMakeAMatch_Click(object sender, EventArgs e)
         {
-            MatchForm match = new MatchForm(this.m_loginResult.LoggedInUser);
+            MatchForm match = new MatchForm(this.m_loginResult.LoggedInUser/*, this.manualFriendsList*/);
             match.Select();
             match.ShowDialog();
+        }
+
+        //private void genrateFriendList()
+        //{
+        //    manualFriend friend1 = new manualFriend("Roy Bar", "male");
+        //    manualFriendsList.Add(friend1);
+        //    manualFriend friend2 = new manualFriend("Yoav Levi", "male");
+        //    manualFriendsList.Add(friend2);
+        //    manualFriend friend3 = new manualFriend("Dan Strik", "male");
+        //    manualFriendsList.Add(friend3);
+        //    manualFriend friend4 = new manualFriend("Roni Shaham", "female");
+        //    manualFriendsList.Add(friend4);
+        //    manualFriend friend5 = new manualFriend("Yarden Avni", "female");
+        //    manualFriendsList.Add(friend5);
+        //    manualFriend friend6 = new manualFriend("Avigail Bryger", "female");
+        //    manualFriendsList.Add(friend6);
+        //}
+
+        //private void displayManaualFriends()
+        //{
+        //    this.listBoxFriends.Items.Clear();
+        //    this.listBoxFriends.DisplayMember = "name";
+        //    foreach(manualFriend friend in this.manualFriendsList)
+        //    {
+        //        this.listBoxFriends.Items.Add(friend);
+        //    }
+        //}
+
+        private void saveFriendListToFile()
+        {
+            this.m_fbFriendsUtils.CurrentFriends = this.m_friends;
+            this.m_fbFriendsUtils.saveFriendListToFile();
+        }
+
+        private void buttonWhoUnfriendedMe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

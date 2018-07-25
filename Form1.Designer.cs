@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBoxProfile = new System.Windows.Forms.PictureBox();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
@@ -51,7 +50,6 @@
             // 
             // pictureBoxProfile
             // 
-            this.pictureBoxProfile.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxProfile.Image")));
             this.pictureBoxProfile.Location = new System.Drawing.Point(15, 8);
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.Size = new System.Drawing.Size(62, 59);
@@ -203,6 +201,7 @@
             this.buttonWhoUnfriendedMe.TabIndex = 18;
             this.buttonWhoUnfriendedMe.Text = "Who unfriended me?";
             this.buttonWhoUnfriendedMe.UseVisualStyleBackColor = true;
+            this.buttonWhoUnfriendedMe.Click += new System.EventHandler(this.buttonWhoUnfriendedMe_Click);
             // 
             // labelConnected
             // 
