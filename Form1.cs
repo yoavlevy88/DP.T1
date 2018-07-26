@@ -52,12 +52,15 @@ namespace C18_Ex01
     {
         LoginResult m_loginResult = null;
         //public ArrayList manualFriendsList = new ArrayList();
-        ArrayList m_friends = new ArrayList();
-        FacebookFriendsUtils m_fbFriendsUtils;
+        ArrayList m_friends;
+        //FacebookFriendsUtils m_fbFriendsUtils;
+        AppUtils m_appLogic;
 
         public Form1()
         {
             InitializeComponent();
+            m_friends = new ArrayList();
+            m_appLogic = new AppUtils();
         }
 
         private void buttonConnect_Click(object sender, EventArgs e)
@@ -88,7 +91,7 @@ namespace C18_Ex01
                 this.listBoxFriends.Enabled = true;
                 this.listBoxPages.Enabled = true;
                 this.listBoxPosts.Enabled = true;
-                m_fbFriendsUtils = new FacebookFriendsUtils("C:/Desktop/fbFriends.xml", this.m_loginResult.LoggedInUser.Name);
+                this.m_appLogic.sendMatchMessage("yoavlevy88@gmail.com", "SUCCESS", "I AM THE QUEEN OF THIS WORLD!");
                 //genrateFriendList();
                 //displayManaualFriends();
                 //saveFriendListToFile();
@@ -165,7 +168,7 @@ namespace C18_Ex01
             this.listBoxFriends.DisplayMember = "Name";
             foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
             {
-                this.m_friends.Add(friend);
+                this.m_friends.Add(friend.Name);
                 this.listBoxFriends.Items.Add(friend);
                 friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
             }
@@ -233,13 +236,43 @@ namespace C18_Ex01
 
         private void saveFriendListToFile()
         {
-            this.m_fbFriendsUtils.CurrentFriends = this.m_friends;
-            this.m_fbFriendsUtils.saveFriendListToFile();
+            this.m_appLogic.fbFriendsUtils.CurrentFriends = this.m_friends;
+            this.m_appLogic.fbFriendsUtils.createFirstFriendsFile(@"C:\Users\miril\Desktop\DP\fbFriends.xml");
+            //this.m_fbFriendsUtils.CurrentFriends = this.m_friends;
+            //this.m_fbFriendsUtils.createFirstFriendsFile(@"C:\Users\miril\Desktop\DP\fbFriends.xml");
         }
 
         private void buttonWhoUnfriendedMe_Click(object sender, EventArgs e)
         {
+            string friendOrFriends = null;
+            string hasOrHave = null;
+            int unfriendedCount = 0;
+            string unfriendedName = this.m_appLogic.fbFriendsUtils.compareFriendLists(@"C:\Users\miril\Desktop\DP\fbFriends.xml", ref unfriendedCount);
+            string message = null;
 
+            if (unfriendedName == null)
+            {
+                message = "No one has unfriended you since your last check!";
+            }
+            else
+            {
+                if (unfriendedCount == 1)
+                {
+                    friendOrFriends = "friend";
+                    hasOrHave = "has";
+                }
+                else
+                {
+                    friendOrFriends = "friends";
+                    hasOrHave = "have";
+                }
+
+                message = string.Format(@"Since your last check, {0} {1} {2} unfriended you:
+{3}", unfriendedCount, friendOrFriends, hasOrHave, unfriendedName);
+            }
+
+            MessageBox.Show(this, message, "Who unfriended me?", MessageBoxButtons.OK);
+            this.m_appLogic.fbFriendsUtils.saveFriendListToFile(@"C:\Users\miril\Desktop\DP\fbFriends.xml");
         }
     }
 }
