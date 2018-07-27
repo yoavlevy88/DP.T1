@@ -1,0 +1,24 @@
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csprojAssemblyReference.cache
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.Form1.resources
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.MatchForm.resources
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.MatchMessageForm.resources
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.GenerateResource.cache
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.resources
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.CoreCompileInputs.cache
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\bin\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.exe
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\bin\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.pdb
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.CopyComplete
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.exe
+C:\Users\Yoav Levy\Desktop\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.pdb
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\bin\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.exe
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\bin\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.pdb
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csprojAssemblyReference.cache
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18_Ex01.Form1.resources
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18_Ex01.MatchForm.resources
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18_Ex01.MatchMessageForm.resources
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.resources
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.GenerateResource.cache
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.CoreCompileInputs.cache
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.csproj.CopyComplete
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.exe
+C:\Users\Yoav Levy\Documents\GitHub\DP.T1\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.pdb

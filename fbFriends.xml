@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<FacebookFriendsUtils xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CurrentFriends>
+    <anyType xsi:type="xsd:string">Roni Shaham</anyType>
+    <anyType xsi:type="xsd:string">Miri Levi</anyType>
+    <anyType xsi:type="xsd:string">Antonio Hanania</anyType>
+  </CurrentFriends>
+  <isFirstCreated>false</isFirstCreated>
+</FacebookFriendsUtils>

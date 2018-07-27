@@ -89,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -99,6 +100,24 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\FB-Connect.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\match.jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\unfriend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\FB-Post.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\facebook-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Rpics\facebook-blank-photo_11.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
