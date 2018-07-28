@@ -63,6 +63,16 @@ namespace C18_Ex01_Yoav_301675872_Miri_314256397.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cancel {
+            get {
+                object obj = ResourceManager.GetObject("cancel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap facebook_background {
             get {
                 object obj = ResourceManager.GetObject("facebook-background", resourceCulture);
@@ -106,6 +116,26 @@ namespace C18_Ex01_Yoav_301675872_Miri_314256397.Properties {
         internal static System.Drawing.Bitmap match_jpg {
             get {
                 object obj = ResourceManager.GetObject("match.jpg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_button {
+            get {
+                object obj = ResourceManager.GetObject("send_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_button1 {
+            get {
+                object obj = ResourceManager.GetObject("send_button1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

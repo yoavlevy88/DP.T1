@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="unfriend" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rpics\unfriend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FB-Connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\FB-Connect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="facebook-background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rpics\facebook-background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="send_button" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\send_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="facebook-blank-photo_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\facebook-blank-photo_11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="match.jpg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rpics\match.jpg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,10 +136,13 @@
   <data name="FB-Post" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Rpics\FB-Post.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FB-Connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rpics\FB-Connect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="unfriend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\unfriend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="facebook-blank-photo_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Rpics\facebook-blank-photo_11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="send_button1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\send_button.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Rpics\cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

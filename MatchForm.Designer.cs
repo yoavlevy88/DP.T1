@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Male");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Female");
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Male");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Female");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Male");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Female");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Male");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Female");
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchForm));
             this.listViewGroupA = new System.Windows.Forms.ListView();
             this.listViewGroupB = new System.Windows.Forms.ListView();
             this.listBoxGroupA = new System.Windows.Forms.ListBox();
@@ -46,11 +47,11 @@
             // listViewGroupA
             // 
             this.listViewGroupA.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6});
-            this.listViewGroupA.Location = new System.Drawing.Point(13, 24);
+            listViewItem1,
+            listViewItem2});
+            this.listViewGroupA.Location = new System.Drawing.Point(15, 24);
             this.listViewGroupA.Name = "listViewGroupA";
-            this.listViewGroupA.Size = new System.Drawing.Size(122, 28);
+            this.listViewGroupA.Size = new System.Drawing.Size(102, 28);
             this.listViewGroupA.TabIndex = 0;
             this.listViewGroupA.Text = "Select filter";
             this.listViewGroupA.UseCompatibleStateImageBehavior = false;
@@ -59,11 +60,11 @@
             // listViewGroupB
             // 
             this.listViewGroupB.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8});
-            this.listViewGroupB.Location = new System.Drawing.Point(157, 24);
+            listViewItem3,
+            listViewItem4});
+            this.listViewGroupB.Location = new System.Drawing.Point(165, 24);
             this.listViewGroupB.Name = "listViewGroupB";
-            this.listViewGroupB.Size = new System.Drawing.Size(122, 28);
+            this.listViewGroupB.Size = new System.Drawing.Size(102, 28);
             this.listViewGroupB.TabIndex = 1;
             this.listViewGroupB.Text = "Select filter";
             this.listViewGroupB.TileSize = new System.Drawing.Size(50, 28);
@@ -88,17 +89,19 @@
             // 
             // buttonMatch
             // 
-            this.buttonMatch.Location = new System.Drawing.Point(15, 263);
+            this.buttonMatch.Image = global::C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.match_jpg;
+            this.buttonMatch.Location = new System.Drawing.Point(109, 265);
             this.buttonMatch.Name = "buttonMatch";
-            this.buttonMatch.Size = new System.Drawing.Size(255, 22);
+            this.buttonMatch.Size = new System.Drawing.Size(62, 22);
             this.buttonMatch.TabIndex = 4;
-            this.buttonMatch.Text = "Make a match!";
             this.buttonMatch.UseVisualStyleBackColor = true;
             this.buttonMatch.Click += new System.EventHandler(this.buttonMatch_Click);
             // 
             // labelGroupA
             // 
             this.labelGroupA.AutoSize = true;
+            this.labelGroupA.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroupA.ForeColor = System.Drawing.Color.White;
             this.labelGroupA.Location = new System.Drawing.Point(12, 64);
             this.labelGroupA.Name = "labelGroupA";
             this.labelGroupA.Size = new System.Drawing.Size(78, 13);
@@ -108,6 +111,8 @@
             // labelGroupB
             // 
             this.labelGroupB.AutoSize = true;
+            this.labelGroupB.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroupB.ForeColor = System.Drawing.Color.White;
             this.labelGroupB.Location = new System.Drawing.Point(162, 64);
             this.labelGroupB.Name = "labelGroupB";
             this.labelGroupB.Size = new System.Drawing.Size(78, 13);
@@ -117,6 +122,8 @@
             // labelGroupAGender
             // 
             this.labelGroupAGender.AutoSize = true;
+            this.labelGroupAGender.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroupAGender.ForeColor = System.Drawing.Color.White;
             this.labelGroupAGender.Location = new System.Drawing.Point(12, 8);
             this.labelGroupAGender.Name = "labelGroupAGender";
             this.labelGroupAGender.Size = new System.Drawing.Size(76, 13);
@@ -126,7 +133,9 @@
             // labelGroupBGender
             // 
             this.labelGroupBGender.AutoSize = true;
-            this.labelGroupBGender.Location = new System.Drawing.Point(154, 8);
+            this.labelGroupBGender.BackColor = System.Drawing.Color.Transparent;
+            this.labelGroupBGender.ForeColor = System.Drawing.Color.White;
+            this.labelGroupBGender.Location = new System.Drawing.Point(162, 8);
             this.labelGroupBGender.Name = "labelGroupBGender";
             this.labelGroupBGender.Size = new System.Drawing.Size(76, 13);
             this.labelGroupBGender.TabIndex = 8;
@@ -136,6 +145,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.facebook_background;
             this.ClientSize = new System.Drawing.Size(284, 299);
             this.Controls.Add(this.labelGroupBGender);
             this.Controls.Add(this.labelGroupAGender);
@@ -146,6 +156,7 @@
             this.Controls.Add(this.listBoxGroupA);
             this.Controls.Add(this.listViewGroupB);
             this.Controls.Add(this.listViewGroupA);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MatchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Make a match";

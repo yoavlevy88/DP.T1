@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatchMessageForm));
             this.labelMatchMessage = new System.Windows.Forms.Label();
             this.textBoxMatchMessage = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
@@ -37,6 +38,8 @@
             // labelMatchMessage
             // 
             this.labelMatchMessage.AutoSize = true;
+            this.labelMatchMessage.BackColor = System.Drawing.Color.Transparent;
+            this.labelMatchMessage.ForeColor = System.Drawing.Color.White;
             this.labelMatchMessage.Location = new System.Drawing.Point(12, 12);
             this.labelMatchMessage.Name = "labelMatchMessage";
             this.labelMatchMessage.Size = new System.Drawing.Size(321, 13);
@@ -45,40 +48,42 @@
             // 
             // textBoxMatchMessage
             // 
-            this.textBoxMatchMessage.Location = new System.Drawing.Point(15, 40);
+            this.textBoxMatchMessage.Location = new System.Drawing.Point(12, 28);
             this.textBoxMatchMessage.Multiline = true;
             this.textBoxMatchMessage.Name = "textBoxMatchMessage";
-            this.textBoxMatchMessage.Size = new System.Drawing.Size(421, 178);
+            this.textBoxMatchMessage.Size = new System.Drawing.Size(429, 186);
             this.textBoxMatchMessage.TabIndex = 1;
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(226, 224);
+            this.buttonSend.Image = global::C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.send_button;
+            this.buttonSend.Location = new System.Drawing.Point(271, 220);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(98, 27);
+            this.buttonSend.Size = new System.Drawing.Size(85, 27);
             this.buttonSend.TabIndex = 2;
-            this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(339, 224);
+            this.buttonCancel.Image = global::C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.cancel;
+            this.buttonCancel.Location = new System.Drawing.Point(362, 220);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(98, 27);
+            this.buttonCancel.Size = new System.Drawing.Size(79, 27);
             this.buttonCancel.TabIndex = 3;
-            this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // MatchMessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::C18_Ex01_Yoav_301675872_Miri_314256397.Properties.Resources.facebook_background;
             this.ClientSize = new System.Drawing.Size(453, 261);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.textBoxMatchMessage);
             this.Controls.Add(this.labelMatchMessage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MatchMessageForm";
             this.Text = "Add a note";
             this.ResumeLayout(false);

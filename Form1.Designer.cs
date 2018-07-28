@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.labelConnect = new System.Windows.Forms.Label();
             this.labelPostStatus = new System.Windows.Forms.Label();
@@ -249,6 +250,7 @@
             this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.pictureBoxProfile);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Facebook Desktop App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
