@@ -161,7 +161,6 @@ namespace C18_Ex01
                 {
                     throw (postException);
                 }
-
             }
         }
 

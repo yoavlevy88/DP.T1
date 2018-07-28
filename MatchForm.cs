@@ -17,12 +17,14 @@ namespace C18_Ex01
     {
         User m_loggedInUser;
         ArrayList m_friendsToMatch;
-       
+        AppUtils m_appLogic;
+
         public MatchForm(User loggedInUser/*, ArrayList manualFriends*/)    //USING THE MANUAL FRIENDS LIST
         {
             this.m_loggedInUser = loggedInUser;
             this.m_friendsToMatch = new ArrayList();
             InitializeComponent();
+            this.m_appLogic = new AppUtils();
         }
 
         private void buttonMatch_Click(object sender, EventArgs e)
@@ -41,7 +43,10 @@ namespace C18_Ex01
             this.m_friendsToMatch.Add(this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex] as User);
             this.m_friendsToMatch.Add(this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex] as User);
             personalMessage = getPersonalMessage();
-
+            string firstMail = "miri.levi94@gmail.com";
+            string secondMail = "yoavlevy88@gmail.com";
+            m_appLogic.sendMatchMessage(firstMail, personalMessage, "You match!");
+            m_appLogic.sendMatchMessage(secondMail, personalMessage, "You match!");
             this.Hide();
         }
 
