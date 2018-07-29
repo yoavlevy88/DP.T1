@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01
 {
-    partial class MatchForm
+    public partial class MatchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

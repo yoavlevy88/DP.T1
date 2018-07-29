@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace C18_Ex01
+﻿namespace C18_Ex01
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Xml.Serialization;
+    using FacebookWrapper;
+    using FacebookWrapper.ObjectModel;
 
     public class FacebookFriendsUtils
     {
-        //string m_userName;
-        //internal ArrayList m_friendsFromFile;
         private ArrayList m_currentFriends;
         private bool m_firstCreated;
-        internal FacebookFriendsUtils(/*string userName*/)
+
+        internal FacebookFriendsUtils()
         {
-            //this.m_userName = userName;
             m_firstCreated = true;
         }
 
@@ -29,6 +26,7 @@ namespace C18_Ex01
             {
                 return this.m_currentFriends;
             }
+
             set
             {
                 this.m_currentFriends = value;   
@@ -41,6 +39,7 @@ namespace C18_Ex01
             {
                 return this.m_firstCreated;
             }
+
             set
             {
                 this.m_firstCreated = value;
@@ -60,6 +59,7 @@ namespace C18_Ex01
                     friendFromFile.m_firstCreated = false;
                 }
             }
+
             return friendFromFile.CurrentFriends;
         }
 
@@ -84,11 +84,11 @@ namespace C18_Ex01
         {
             string unfriendedName = null;
             ArrayList friendsFromFile = getFriendsFromFile(filePath);
-            if(this.m_currentFriends.Count < friendsFromFile.Count) //means someone unfriended me
+            if(this.m_currentFriends.Count < friendsFromFile.Count)
             {
                 foreach(string friendName in friendsFromFile)
                 {
-                    if(!this.m_currentFriends.Contains(friendName))//found the one/s who unfriended
+                    if(!this.m_currentFriends.Contains(friendName))
                     {
                         unfriendedName += friendName;
                         unfriendedName += Environment.NewLine;
@@ -96,6 +96,7 @@ namespace C18_Ex01
                     }
                 }
             }
+
             return unfriendedName;
         }
     }

@@ -1,33 +1,32 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System.IO;
-using System.Xml.Serialization;
-
-namespace C18_Ex01
+﻿namespace C18_Ex01
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Forms;
+    using System.Xml.Serialization;
+    using FacebookWrapper;
+    using FacebookWrapper.ObjectModel;
 
     public partial class Form1 : Form
     {
-        LoginResult m_loginResult = null;
-        ArrayList m_friends;
-        AppUtils m_appLogic;
-        MatchForm m_match;
-        string m_debugPath, m_path;
+        private LoginResult m_loginResult = null;
+        private ArrayList m_friends;
+        private FacebookFriendsUtils m_fbFriendsUtils;
+        private MatchForm m_match;
+        private string m_debugPath, m_path;
 
         public Form1()
         {
             InitializeComponent();
             this.m_friends = new ArrayList();
-            this.m_appLogic = new AppUtils();
+            this.m_fbFriendsUtils = new FacebookFriendsUtils();
             this.m_debugPath = Directory.GetCurrentDirectory();
             this.m_path = Path.GetFullPath(Path.Combine(this.m_debugPath, @"..\..\"));
         }
@@ -41,7 +40,7 @@ namespace C18_Ex01
             }
             catch (Exception loginException)
             {
-                throw (loginException);
+                throw loginException;
             }
 
             MessageBox.Show(string.Format(@"Welcome {0}!", m_loginResult.LoggedInUser.FirstName), "Welcome", okButton);
@@ -69,22 +68,30 @@ namespace C18_Ex01
             fetchFriends();
             saveFriendListToFile();
             fetchPosts();
-            //fetchEvents();
-            //fetchPages();
+            fetchEvents();
+            fetchPages();
         }
 
         private void fetchPages()
         {
             this.listBoxPages.Items.Clear();
             listBoxPages.DisplayMember = "Name";
-            foreach (Page page in this.m_loginResult.LoggedInUser.LikedPages)
+
+            try
             {
-                this.listBoxPages.Items.Add(page);
+                foreach (Page page in this.m_loginResult.LoggedInUser.LikedPages)
+                {
+                    this.listBoxPages.Items.Add(page);
+                }
+
+                if (this.m_loginResult.LoggedInUser.LikedPages.Count == 0)
+                {
+                    this.listBoxPages.Items.Add("No pages to display!");
+                }
             }
-            if (this.m_loginResult.LoggedInUser.LikedPages.Count == 0)
+            catch
             {
-                this.listBoxPages.Items.Add("No pages to display!");
-                this.listBoxPages.Enabled = false;
+                this.listBoxPages.Items.Add("Due to Facebook permission issues, cannot display pages at the moment");
             }
         }
 
@@ -92,54 +99,78 @@ namespace C18_Ex01
         {
             this.listBoxEvents.Items.Clear();
             listBoxEvents.DisplayMember = "Name";
-            foreach (Event userEvent in this.m_loginResult.LoggedInUser.Events)
+            try
             {
-                this.listBoxEvents.Items.Add(userEvent);
+                foreach (Event userEvent in this.m_loginResult.LoggedInUser.Events)
+                {
+                    this.listBoxEvents.Items.Add(userEvent);
+                }
+
+                if (this.m_loginResult.LoggedInUser.Events.Count == 0)
+                {
+                    this.listBoxEvents.Items.Add("No events to display!");
+                }
             }
-            if (this.m_loginResult.LoggedInUser.Events.Count == 0)
+            catch
             {
-                this.listBoxEvents.Items.Add("No events to display!");
-                this.listBoxEvents.Enabled = false;
+                this.listBoxEvents.Items.Add("Due to Facebook permission issues, cannot display events at the moment");
             }
         }
 
         private void fetchPosts()
         {
             this.listBoxPosts.Items.Clear();
-            foreach (Post post in this.m_loginResult.LoggedInUser.Posts)
+
+            try
             {
-                if (post.Message != null)
+                foreach (Post post in this.m_loginResult.LoggedInUser.Posts)
                 {
-                    listBoxPosts.Items.Add(post.Message);
+                    if (post.Message != null)
+                    {
+                        listBoxPosts.Items.Add(post.Message);
+                    }
+                    else if (post.Caption != null)
+                    {
+                        listBoxPosts.Items.Add(post.Caption);
+                    }
+                    else
+                    {
+                        listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
+                    }
                 }
-                else if (post.Caption != null)
+
+                if (this.m_loginResult.LoggedInUser.Posts.Count == 0)
                 {
-                    listBoxPosts.Items.Add(post.Caption);
-                }
-                else
-                {
-                    listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
+                    this.listBoxPages.Items.Add("No posts to display!");
                 }
             }
-            if (this.m_loginResult.LoggedInUser.Posts.Count == 0)
+            catch
             {
-                this.listBoxPages.Items.Add("No posts to display!");
-                this.listBoxPages.Enabled = false;
+                this.listBoxPages.Items.Add("Due to Facebook permission issues, cannot display posts at the moment");
             }
         }
+
         private void fetchFriends()
         {
             this.listBoxFriends.DisplayMember = "Name";
-            foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
+            try
             {
-                this.m_friends.Add(friend.Name);
-                this.listBoxFriends.Items.Add(friend);
-                friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+                foreach (User friend in this.m_loginResult.LoggedInUser.Friends)
+                {
+                    this.m_friends.Add(friend.Name);
+                    this.listBoxFriends.Items.Add(friend);
+                    friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
+                }
+
+                if (this.m_loginResult.LoggedInUser.Friends.Count == 0)
+                {
+                    this.listBoxFriends.Items.Add("No friends to display!");
+                    this.listBoxFriends.Enabled = false;
+                }
             }
-            if (this.m_loginResult.LoggedInUser.Friends.Count == 0)
+            catch
             {
-                this.listBoxFriends.Items.Add("No friends to display!");
-                this.listBoxFriends.Enabled = false;
+                this.listBoxPages.Items.Add("Due to Facebook permission issues, cannot display friends at the moment");
             }
         }
 
@@ -148,7 +179,6 @@ namespace C18_Ex01
             if (this.textBoxStatus.TextLength == 0)
             {
                 MessageBox.Show(this, "Cannot upload empty post!", "Error!", MessageBoxButtons.OK);
-
             }
             else
             {
@@ -157,9 +187,9 @@ namespace C18_Ex01
                     Status statusToPost = this.m_loginResult.LoggedInUser.PostStatus(this.textBoxStatus.Text);
                     MessageBox.Show(this, "Statuse posted! :)", "Posted", MessageBoxButtons.OK);
                 }
-                catch (Exception postException)
+                catch
                 {
-                    throw (postException);
+                    MessageBox.Show(this, "Due to Facebook permission problems, we are unable to post this to your Facebook profile", "Error", MessageBoxButtons.OK);
                 }
             }
         }
@@ -168,18 +198,12 @@ namespace C18_Ex01
         {
             this.m_match.Select();
             this.m_match.ShowDialog();
-
         }
 
         private void saveFriendListToFile()
         {
-            this.m_appLogic.fbFriendsUtils.CurrentFriends = this.m_friends;
-            this.m_appLogic.fbFriendsUtils.createFirstFriendsFile(this.m_path + "fbFriends.xml");
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
+            this.m_fbFriendsUtils.CurrentFriends = this.m_friends;
+            this.m_fbFriendsUtils.createFirstFriendsFile(this.m_path + "fbFriends.xml");
         }
 
         private void buttonWhoUnfriendedMe_Click(object sender, EventArgs e)
@@ -187,7 +211,7 @@ namespace C18_Ex01
             string friendOrFriends = null;
             string hasOrHave = null;
             int unfriendedCount = 0;
-            string unfriendedName = this.m_appLogic.fbFriendsUtils.compareFriendLists(this.m_path + "fbFriends.xml", ref unfriendedCount);
+            string unfriendedName = this.m_fbFriendsUtils.compareFriendLists(this.m_path + "fbFriends.xml", ref unfriendedCount);
             string message = null;
 
             if (unfriendedName == null)
@@ -207,12 +231,17 @@ namespace C18_Ex01
                     hasOrHave = "have";
                 }
 
-                message = string.Format(@"Since your last check, {0} {1} {2} unfriended you:
-{3}", unfriendedCount, friendOrFriends, hasOrHave, unfriendedName);
+                message = string.Format(
+                    @"Since your last check, {0} {1} {2} unfriended you:
+{3}",
+                    unfriendedCount,
+                    friendOrFriends,
+                    hasOrHave,
+                    unfriendedName);
             }
 
             MessageBox.Show(this, message, "Who unfriended me?", MessageBoxButtons.OK);
-            this.m_appLogic.fbFriendsUtils.saveFriendListToFile(this.m_path + "fbFriends.xml");
+            this.m_fbFriendsUtils.saveFriendListToFile(this.m_path + "fbFriends.xml");
         }
     }
 }

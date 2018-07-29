@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-
-namespace C18_Ex01
+﻿namespace C18_Ex01
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Forms;
+    using FacebookWrapper;
+    using FacebookWrapper.ObjectModel;
 
     public partial class MatchForm : Form
     {
-        User m_loggedInUser;
-        ArrayList m_friendsToMatch;
-        AppUtils m_appLogic;
+        private User m_loggedInUser;
+        private AppUtils m_appLogic;
 
-        public MatchForm(User loggedInUser/*, ArrayList manualFriends*/)    //USING THE MANUAL FRIENDS LIST
+        public MatchForm(User loggedInUser)
         {
             this.m_loggedInUser = loggedInUser;
-            this.m_friendsToMatch = new ArrayList();
             InitializeComponent();
             this.m_appLogic = new AppUtils();
         }
@@ -34,20 +31,24 @@ namespace C18_Ex01
             {
                 MessageBox.Show("Please choose one person from each list", "Error!", MessageBoxButtons.OK);
             }
+
             if (((User)this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex]).Name == ((User)this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex]).Name)
             {
                 MessageBox.Show("Cannot choose the same person twice", "Error!", MessageBoxButtons.OK);
             }
 
-            //m_friendsToMatch & personalMessage should be returned somehow to form1
-            this.m_friendsToMatch.Add(this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex] as User);
-            this.m_friendsToMatch.Add(this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex] as User);
             personalMessage = getPersonalMessage();
-            string firstMail = "miri.levi94@gmail.com";
-            string secondMail = "yoavlevy88@gmail.com";
-            m_appLogic.sendMatchMessage(firstMail, personalMessage, "You match!");
-            m_appLogic.sendMatchMessage(secondMail, personalMessage, "You match!");
-            this.Hide();
+            User[] friendsToMatch = new User[] { this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex] as User, this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex] as User };
+            if(friendsToMatch[0].Email == null || friendsToMatch[1].Email == null)
+            {
+                MessageBox.Show(this, "We are unable to send the match message at the time, due to Facebook persmission. The friend's emails are unavailable.", "error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                this.m_appLogic.generateMatchMessages(this.m_loggedInUser, friendsToMatch, personalMessage);
+            }
+
+            this.Close();
         }
 
         private void listViewGroupA_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -65,6 +66,7 @@ namespace C18_Ex01
                     gender.ForeColor = Color.Gray;
                 }
             }
+
             friendsList.Enabled = true;
             genderChangedEvent.Item.ForeColor = Color.Black;
             friendsList.Items.Clear();
@@ -76,6 +78,7 @@ namespace C18_Ex01
                     friendsList.Items.Add(friend);
                 }
             }
+
             if (friendsList.Items.Count == 0)
             {
                 friendsList.Enabled = false;
@@ -88,42 +91,12 @@ namespace C18_Ex01
             genderSelectionChanged(this.listViewGroupB, this.listBoxGroupB, e);
         }
 
-        //        private ArrayList sendAMatchMessage()
-        //        {
-        //            User[] friendsToMatch = new User[] { (User)(this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex]), (User)(this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex]) };
-        //            string message = string.Empty;
-        //            ArrayList msgs = new ArrayList();
-        //            MatchMessageForm matchMessage = new MatchMessageForm();
-        //            int index = 1;
-        //            matchMessage.ShowDialog();
-
-        //            foreach (User friend in friendsToMatch)
-        //            {
-        //                message += string.Format(@"Hi {0}!
-        //{1} thinks that you and {2} would be a great match!", friend.Name, this.m_loggedInUser.Name, friendsToMatch[index].Name);
-        //                index = 0;
-        //                if (!matchMessage.IsEmpty)
-        //                {
-        //                    message += string.Format(@" Here are a few of the reasons why:
-        //{0}", matchMessage.MatchMessage);
-        //                }
-        //                msgs.Add(message);
-        //                message = string.Empty;
-        //            }
-
-        //            return msgs;
-        //        }
         private string getPersonalMessage()
         {
             string message = string.Empty;
             MatchMessageForm matchMessage = new MatchMessageForm();
             matchMessage.ShowDialog();
             return matchMessage.MatchMessage;
-        }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            this.m_friendsToMatch.Clear();
         }
     }
 }

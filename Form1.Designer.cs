@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01
 {
-    partial class Form1
+    public partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -85,6 +86,7 @@
             // 
             this.listBoxFriends.Enabled = false;
             this.listBoxFriends.FormattingEnabled = true;
+            this.listBoxFriends.HorizontalScrollbar = true;
             this.listBoxFriends.Location = new System.Drawing.Point(663, 122);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(156, 212);
@@ -118,6 +120,7 @@
             // 
             this.listBoxPosts.Enabled = false;
             this.listBoxPosts.FormattingEnabled = true;
+            this.listBoxPosts.HorizontalScrollbar = true;
             this.listBoxPosts.Location = new System.Drawing.Point(485, 122);
             this.listBoxPosts.Name = "listBoxPosts";
             this.listBoxPosts.Size = new System.Drawing.Size(156, 212);
@@ -139,6 +142,7 @@
             // 
             this.listBoxEvents.Enabled = false;
             this.listBoxEvents.FormattingEnabled = true;
+            this.listBoxEvents.HorizontalScrollbar = true;
             this.listBoxEvents.Location = new System.Drawing.Point(305, 122);
             this.listBoxEvents.Name = "listBoxEvents";
             this.listBoxEvents.Size = new System.Drawing.Size(156, 212);
@@ -159,6 +163,7 @@
             // listBoxPages
             // 
             this.listBoxPages.FormattingEnabled = true;
+            this.listBoxPages.HorizontalScrollbar = true;
             this.listBoxPages.Location = new System.Drawing.Point(122, 122);
             this.listBoxPages.Name = "listBoxPages";
             this.listBoxPages.Size = new System.Drawing.Size(156, 212);
@@ -280,4 +285,3 @@
         private System.Windows.Forms.Label labelConnected;
     }
 }
-

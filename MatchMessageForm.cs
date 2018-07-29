@@ -1,18 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-
-namespace C18_Ex01
+﻿namespace C18_Ex01
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Forms;
+
     internal partial class MatchMessageForm : Form
     {
-        bool m_isEmptyMessage;
-        string m_matchMessage;
+        private bool m_isEmptyMessage;
+        private string m_matchMessage;
 
         internal MatchMessageForm()
         {
@@ -47,6 +47,7 @@ namespace C18_Ex01
                 this.m_matchMessage = this.textBoxMatchMessage.Text;
                 this.m_isEmptyMessage = false;
             }
+
             this.Close();
         }
     }

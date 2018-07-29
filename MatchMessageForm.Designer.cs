@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01
 {
-    partial class MatchMessageForm
+    internal partial class MatchMessageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -85,6 +86,7 @@
             this.Controls.Add(this.labelMatchMessage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MatchMessageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add a note";
             this.ResumeLayout(false);
             this.PerformLayout();
