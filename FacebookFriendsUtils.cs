@@ -33,7 +33,7 @@
             }
         }
 
-        public bool isFirstCreated
+        public bool IsFirstCreated
         {
             get
             {
