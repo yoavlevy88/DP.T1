@@ -15,13 +15,13 @@
     public partial class MatchForm : Form
     {
         private User m_loggedInUser;
-        private AppUtils m_appLogic;
+        private MatchUtils m_appLogic;
 
-        public MatchForm(User loggedInUser)
+        public MatchForm(User i_loggedInUser)
         {
-            this.m_loggedInUser = loggedInUser;
+            this.m_loggedInUser = i_loggedInUser;
             InitializeComponent();
-            this.m_appLogic = new AppUtils();
+            this.m_appLogic = new MatchUtils();
         }
 
         private void buttonMatch_Click(object sender, EventArgs e)
@@ -38,6 +38,12 @@
             }
 
             personalMessage = getPersonalMessage();
+            if (personalMessage == "Cancel")
+            {
+                this.Close();
+                return;
+            }
+
             User[] friendsToMatch = new User[] { this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex] as User, this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex] as User };
             if(friendsToMatch[0].Email == null || friendsToMatch[1].Email == null)
             {
@@ -96,6 +102,12 @@
             string message = string.Empty;
             MatchMessageForm matchMessage = new MatchMessageForm();
             matchMessage.ShowDialog();
+            DialogResult matchResult = matchMessage.DialogResult;
+            if(matchResult == DialogResult.Cancel)
+            {
+                return "Cancel";
+            }
+
             return matchMessage.MatchMessage;
         }
     }

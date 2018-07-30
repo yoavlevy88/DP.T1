@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01
 {
-    public partial class Form1
+    public partial class FormApp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormApp));
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.labelConnect = new System.Windows.Forms.Label();
             this.labelPostStatus = new System.Windows.Forms.Label();

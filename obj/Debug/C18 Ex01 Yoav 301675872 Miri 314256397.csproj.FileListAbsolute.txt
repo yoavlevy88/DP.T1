@@ -9,4 +9,4 @@ c:\users\miril\documents\visual studio 2015\Projects\C18 Ex01 Yoav 301675872 Mir
 c:\users\miril\documents\visual studio 2015\Projects\C18 Ex01 Yoav 301675872 Miri 314256397\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18 Ex01 Yoav 301675872 Miri 314256397.pdb
 c:\users\miril\documents\visual studio 2015\Projects\C18 Ex01 Yoav 301675872 Miri 314256397\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.MatchForm.resources
 C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex01 Yoav 301675872 Miri 314256397\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.MatchMessageForm.resources
-C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex01 Yoav 301675872 Miri 314256397\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.Form1.resources
+C:\Users\miril\Documents\Visual Studio 2015\Projects\C18 Ex01 Yoav 301675872 Miri 314256397\C18 Ex01 Yoav 301675872 Miri 314256397\obj\Debug\C18_Ex01.FormApp.resources

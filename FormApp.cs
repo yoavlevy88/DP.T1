@@ -14,7 +14,7 @@
     using FacebookWrapper;
     using FacebookWrapper.ObjectModel;
 
-    public partial class Form1 : Form
+    public partial class FormApp : Form
     {
         private LoginResult m_loginResult = null;
         private ArrayList m_friends;
@@ -22,7 +22,7 @@
         private MatchForm m_match;
         private string m_debugPath, m_path;
 
-        public Form1()
+        public FormApp()
         {
             InitializeComponent();
             this.m_friends = new ArrayList();

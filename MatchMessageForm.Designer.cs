@@ -73,6 +73,7 @@
             this.buttonCancel.Size = new System.Drawing.Size(79, 27);
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // MatchMessageForm
             // 

@@ -10,20 +10,20 @@
     using FacebookWrapper;
     using FacebookWrapper.ObjectModel;
     
-    internal class AppUtils
+    internal class MatchUtils
     {
         private string m_sendingMailAddress;
         private string m_mailPassword;
 
-        internal AppUtils()
+        internal MatchUtils()
         {
             this.m_sendingMailAddress = "design.patterns18c@gmail.com";
             this.m_mailPassword = "design.patternspp2018";
         }
 
-        internal void sendMatchMessage(string userMail, string message, string subject)
+        private void sendMatchMessage(string i_userMail, string i_message, string i_subject)
         {
-            MailMessage matchMail = new MailMessage(this.m_sendingMailAddress, userMail);
+            MailMessage matchMail = new MailMessage(this.m_sendingMailAddress, i_userMail);
             SmtpClient client = new SmtpClient
             {
                 Host = "smtp.gmail.com",
@@ -33,8 +33,8 @@
                 Credentials = new NetworkCredential(this.m_sendingMailAddress, this.m_mailPassword),
                 Timeout = 20000
             };
-            matchMail.Subject = subject;
-            matchMail.Body = message;
+            matchMail.Subject = i_subject;
+            matchMail.Body = i_message;
 
             try
             {
@@ -46,33 +46,33 @@
             }
         }
 
-        internal void generateMatchMessages(User loggedInUser, User[] friendsToMatch, string personalMessage)
+        internal void generateMatchMessages(User i_loggedInUser, User[] i_friendsToMatch, string i_personalMessage)
         {
             string messageBody = string.Empty;
             int index = 1;
             string messageSubject = "You have a match!";
 
-            foreach (User friend in friendsToMatch)
+            foreach (User friend in i_friendsToMatch)
             {
                 messageBody += string.Format(
                     @"Hi {0}!
 {1} thinks that you and {2} would be a great match!",
                     friend.Name,
-                    loggedInUser.Name,
-                    friendsToMatch[index].Name);
+                    i_loggedInUser.Name,
+                    i_friendsToMatch[index].Name);
 
-                if (!string.IsNullOrEmpty(personalMessage))
+                if (!string.IsNullOrEmpty(i_personalMessage))
                 {
                     messageBody += string.Format(
                         @" Here are a few of the reasons why:
 {0}",
-                        personalMessage);
+                        i_personalMessage);
                 }
 
                 messageBody += string.Format(
                     @"
 Look them out on Facebook, and see if {0} is right about you two!",
-                    loggedInUser);
+                    i_loggedInUser);
                 index = 0;
                 sendMatchMessage(friend.Email, messageBody, messageSubject);
                 messageBody = string.Empty;
