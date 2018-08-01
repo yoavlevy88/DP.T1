@@ -30,11 +30,13 @@
             if (this.listBoxGroupA.SelectedItems.Count != 1 || this.listBoxGroupB.SelectedItems.Count != 1)
             {
                 MessageBox.Show("Please choose one person from each list", "Error!", MessageBoxButtons.OK);
+                return;
             }
 
             if (((User)this.listBoxGroupA.Items[this.listBoxGroupA.SelectedIndex]).Name == ((User)this.listBoxGroupB.Items[this.listBoxGroupB.SelectedIndex]).Name)
             {
                 MessageBox.Show("Cannot choose the same person twice", "Error!", MessageBoxButtons.OK);
+                return;
             }
 
             personalMessage = getPersonalMessage();
@@ -51,7 +53,15 @@
             }
             else
             {
-                this.m_appLogic.generateMatchMessages(this.m_loggedInUser, friendsToMatch, personalMessage);
+                try
+                {
+                    this.m_appLogic.generateMatchMessages(this.m_loggedInUser, friendsToMatch, personalMessage);
+                    MessageBox.Show(this, "Match made!", "Matched");
+                }
+                catch
+                {
+                    MessageBox.Show(this, "Unable to make a match", "Error");
+                }
             }
 
             this.Close();

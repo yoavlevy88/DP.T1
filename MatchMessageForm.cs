@@ -48,6 +48,7 @@
                 this.m_isEmptyMessage = false;
             }
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 

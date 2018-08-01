@@ -74,7 +74,15 @@
 Look them out on Facebook, and see if {0} is right about you two!",
                     i_loggedInUser);
                 index = 0;
-                sendMatchMessage(friend.Email, messageBody, messageSubject);
+                try
+                {
+                    sendMatchMessage(friend.Email, messageBody, messageSubject);
+                }
+                catch(Exception mailException)
+                {
+                    throw mailException;
+                }
+
                 messageBody = string.Empty;
             }
         }
