@@ -188,6 +188,8 @@
             this.buttonWhoUnfriendedMe.TabIndex = 18;
             this.buttonWhoUnfriendedMe.UseVisualStyleBackColor = true;
             this.buttonWhoUnfriendedMe.Click += new System.EventHandler(this.buttonWhoUnfriendedMe_Click);
+            this.buttonWhoUnfriendedMe.MouseEnter += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseEnter);
+            this.buttonWhoUnfriendedMe.MouseLeave += new System.EventHandler(this.buttonWhoUnfriendedMe_MouseLeave);
             // 
             // buttonMakeAMatch
             // 
@@ -199,6 +201,8 @@
             this.buttonMakeAMatch.TabIndex = 17;
             this.buttonMakeAMatch.UseVisualStyleBackColor = true;
             this.buttonMakeAMatch.Click += new System.EventHandler(this.buttonMakeAMatch_Click);
+            this.buttonMakeAMatch.MouseEnter += new System.EventHandler(this.buttonMakeAMatch_MouseEnter);
+            this.buttonMakeAMatch.MouseLeave += new System.EventHandler(this.buttonMakeAMatch_MouseLeave);
             // 
             // buttonPost
             // 
@@ -210,6 +214,8 @@
             this.buttonPost.TabIndex = 6;
             this.buttonPost.UseVisualStyleBackColor = true;
             this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
+            this.buttonPost.MouseEnter += new System.EventHandler(this.buttonPost_MouseEnter);
+            this.buttonPost.MouseLeave += new System.EventHandler(this.buttonPost_MouseLeave);
             // 
             // buttonConnect
             // 
@@ -220,6 +226,8 @@
             this.buttonConnect.TabIndex = 3;
             this.buttonConnect.UseVisualStyleBackColor = true;
             this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
+            this.buttonConnect.MouseEnter += new System.EventHandler(this.buttonConnect_MouseEnter);
+            this.buttonConnect.MouseLeave += new System.EventHandler(this.buttonConnect_MouseLeave);
             // 
             // pictureBoxProfile
             // 
@@ -231,7 +239,7 @@
             this.pictureBoxProfile.TabIndex = 0;
             this.pictureBoxProfile.TabStop = false;
             // 
-            // Form1
+            // FormApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,7 +264,7 @@
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.pictureBoxProfile);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.Name = "FormApp";
             this.Text = "Facebook Desktop App";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.ResumeLayout(false);

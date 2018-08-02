@@ -120,5 +120,23 @@
 
             return matchMessage.MatchMessage;
         }
+
+        private void buttonMatch_MouseEnter(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+
+        private void buttonMatch_MouseLeave(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void MatchForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.listViewGroupA.SelectedItems.Clear();
+            this.listViewGroupB.SelectedItems.Clear();
+            this.listBoxGroupA.SelectedItems.Clear();
+            this.listBoxGroupB.SelectedItems.Clear();
+        }
     }
 }

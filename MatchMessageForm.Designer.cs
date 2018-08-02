@@ -64,6 +64,8 @@
             this.buttonSend.TabIndex = 2;
             this.buttonSend.UseVisualStyleBackColor = true;
             this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.MouseEnter += new System.EventHandler(this.buttonSend_MouseEnter);
+            this.buttonSend.MouseLeave += new System.EventHandler(this.buttonSend_MouseLeave);
             // 
             // buttonCancel
             // 
@@ -74,6 +76,8 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.MouseEnter += new System.EventHandler(this.buttonCancel_MouseEnter);
+            this.buttonCancel.MouseLeave += new System.EventHandler(this.buttonCancel_MouseLeave);
             // 
             // MatchMessageForm
             // 

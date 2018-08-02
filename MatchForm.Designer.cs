@@ -97,6 +97,8 @@
             this.buttonMatch.TabIndex = 4;
             this.buttonMatch.UseVisualStyleBackColor = true;
             this.buttonMatch.Click += new System.EventHandler(this.buttonMatch_Click);
+            this.buttonMatch.MouseEnter += new System.EventHandler(this.buttonMatch_MouseEnter);
+            this.buttonMatch.MouseLeave += new System.EventHandler(this.buttonMatch_MouseLeave);
             // 
             // labelGroupA
             // 
@@ -161,6 +163,7 @@
             this.Name = "MatchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Make a match";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MatchForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
